@@ -1,73 +1,99 @@
 <!DOCTYPE HTML>
 <html>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
    <head>
    
       <style>
       </style>
-      
-      <script type="text/javascript">
-         function drawShape(){
-            
-            // Get the canvas element using the DOM
-            var canvas = document.getElementById('mycanvas');
-
-            // Make sure we don't execute when canvas isn't supported
-            if (canvas.getContext){
-               
-               // use getContext to use the canvas for drawing
-               var ctx = canvas.getContext('2d');
-
-               // Draw shapes
-               p1 = [250, 25];
-               p2 = [50, 425];
-               p3 = [450, 425];
-               ctx.fillStyle = "Red";
-               ctx.fillRect(p1[0], p1[1], 1, 1);
-               ctx.fillStyle = "Blue";
-               ctx.fillRect(p2[0], p2[1], 1, 1);
-               ctx.fillStyle = "Green";
-               ctx.fillRect(p3[0], p3[1], 1, 1);
-               var ITERATIONS = 100000;
-               var cur_point = p1
-               var counter = 0;
-               (function next() {
-                  if (counter++ >= ITERATIONS) return;
-
-                  setTimeout(function() {
-                     var r = Math.floor((Math.random() * 6) + 1)
-                     if (r == 1 || r == 2) {
-                        cur_point = [Math.floor(cur_point[0] + p1[0]) / 2,
-                                     Math.floor(cur_point[1] + p1[1]) / 2];
-                        ctx.fillStyle = "Red";
-                        ctx.fillRect(cur_point[0], cur_point[1], 1, 1);
-                     }
-                     if (r == 3 || r == 4) {
-                        cur_point = [Math.floor(cur_point[0] + p2[0]) / 2,
-                                     Math.floor(cur_point[1] + p2[1]) / 2]
-                        ctx.fillStyle = "Blue";
-                        ctx.fillRect(cur_point[0], cur_point[1], 1, 1);
-                     }
-                     if (r == 5 || r == 6) {
-                        cur_point = [Math.floor(cur_point[0] + p3[0]) / 2,
-                                     Math.floor(cur_point[1] + p3[1]) / 2]
-                        ctx.fillStyle = "Green";
-                        ctx.fillRect(cur_point[0], cur_point[1], 1, 1);
-                     }
-                     next();
-                  }, 0)
-               })();
-            }
-            
-            else {
-               alert('You need Safari or Firefox 1.5+ to see this demo.');
-            }
-         }
-      </script>
         
    </head>
    
-   <body id="test" onload="drawShape();">
-      <canvas id="mycanvas" width="500" height="500"></canvas>
-   </body>
+  <body data-spy='scroll'>
+
+  <div class="black-overlay">
+  <img class="background-image" src="http://www.hdwallpapersn.com/wp-content/uploads/2015/04/Fractal-Pictures-3.jpg" alt="Double helix background 02e69194a32940544f878ebbc6bd65880b46ed63d0d992753a7a8edefebd73f1" />
+  <div class="black-overlay-2" id="hello" onclick="window.location.replace('/pages/serp');"></div>
+</div>
+<div class="row home-jumbo-row">
+  <div class="col-md-12 sci-react-home-title-columns text-center"><br /><br />
+    <div class="sci-react-home-title">FRACTA</div>
+    <div class="description">click anywhere to continue</div>
+  </div>
+</div>
+</body>
     
 </html>
+
+
+<style type='text/css'>
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+  @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+.description{
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 23px;
+  padding-top: 45px;
+}
+
+.background-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.black-overlay {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100%;
+}
+
+.black-overlay-2 {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-jumbo-row {
+  margin-left: 6.5%;
+  margin-right: 6.5%;
+  padding-top: 8.2%;
+}
+
+.home-jumbo-row .home-page-right-side-column {
+  padding-left: 5%;
+}
+
+.home-jumbo-row .home-page-right-side {
+  padding-top: 3.5%;
+}
+
+.home-jumbo-row .most-rigorous {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent);
+  color: white;
+  padding: 50px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 33px;
+  font-family: "Roboto";
+  font-weight: 100;
+}
+
+.sci-react-home-title {
+  color: white;
+  font-size: 156px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 68px;
+  font-weight: bold;
+  letter-spacing: 60px;
+}
+
+
+</style>

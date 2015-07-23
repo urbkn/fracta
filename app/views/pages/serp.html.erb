@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+   
+      <style>
+      </style>
+      
+      <script type="text/javascript">
+         function drawShape(){
+            
+            // Get the canvas element using the DOM
+            var canvas = document.getElementById('mycanvas');
+
+            // Make sure we don't execute when canvas isn't supported
+            if (canvas.getContext){
+               
+               // use getContext to use the canvas for drawing
+               var ctx = canvas.getContext('2d');
+
+               // Draw shapes
+               p1 = [250, 25];
+               p2 = [50, 425];
+               p3 = [450, 425];
+               ctx.fillStyle = "Red";
+               ctx.fillRect(p1[0], p1[1], 1, 1);
+               ctx.fillStyle = "Blue";
+               ctx.fillRect(p2[0], p2[1], 1, 1);
+               ctx.fillStyle = "Green";
+               ctx.fillRect(p3[0], p3[1], 1, 1);
+               var ITERATIONS = 100000;
+               var cur_point = p1
+               var counter = 0;
+               (function next() {
+                  if (counter++ >= ITERATIONS) return;
+
+                  setTimeout(function() {
+                     var r = Math.floor((Math.random() * 6) + 1)
+                     if (r == 1 || r == 2) {
+                        cur_point = [Math.floor(cur_point[0] + p1[0]) / 2,
+                                     Math.floor(cur_point[1] + p1[1]) / 2];
+                        ctx.fillStyle = "Red";
+                        ctx.fillRect(cur_point[0], cur_point[1], 1, 1);
+                     }
+                     if (r == 3 || r == 4) {
+                        cur_point = [Math.floor(cur_point[0] + p2[0]) / 2,
+                                     Math.floor(cur_point[1] + p2[1]) / 2]
+                        ctx.fillStyle = "Blue";
+                        ctx.fillRect(cur_point[0], cur_point[1], 1, 1);
+                     }
+                     if (r == 5 || r == 6) {
+                        cur_point = [Math.floor(cur_point[0] + p3[0]) / 2,
+                                     Math.floor(cur_point[1] + p3[1]) / 2]
+                        ctx.fillStyle = "Green";
+                        ctx.fillRect(cur_point[0], cur_point[1], 1, 1);
+                     }
+                     next();
+                  }, 0)
+               })();
+            }
+            
+            else {
+               alert('You need Safari or Firefox 1.5+ to see this demo.');
+            }
+         }
+      </script>
+        
+   </head>
+   
+   <body id="test" onload="drawShape();">
+      <canvas id="mycanvas" width="500" height="500"></canvas>
+   </body>
+    
+</html>
